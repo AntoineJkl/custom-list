@@ -1,0 +1,43 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 19,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "default",
+            "description": "Default build with Release configuration",
+            "hidden": false,
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_INSTALL_PREFIX": "/home/agicquel/Documents/install/install_custom_ls"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "default",
+            "configurePreset": "default",
+            "jobs": 4
+        },
+        {
+            "name": "install",
+            "configurePreset": "default",
+            "targets": ["install"]
+        },
+        {
+            "name": "uninstall",
+            "configurePreset": "default",
+            "targets": ["uninstall"]
+        },
+        {
+            "name": "clean",
+            "configurePreset": "default",
+            "nativeToolOptions": ["clean"]
+        }
+    ]
+}
